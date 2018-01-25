@@ -2,6 +2,7 @@
 
 properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '10']]])
 
+
 stage('build') {
     node {
         checkout scm
@@ -10,6 +11,7 @@ stage('build') {
         mvn "clean verify"
     }
 }
+
 
 
 def branch_type = get_branch_type "${env.BRANCH_NAME}"
