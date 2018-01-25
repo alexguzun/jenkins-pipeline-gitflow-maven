@@ -2,6 +2,7 @@
 
 properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '10']]])
 
+
 stage('build') {
     node {
         checkout scm
@@ -11,11 +12,7 @@ stage('build') {
     }
 }
 
-stage('build docker image') {
-    node {
-        mvn "clean package docker:build -DskipTests"
-    }
-}
+
 
 def branch_type = get_branch_type "${env.BRANCH_NAME}"
 def branch_deployment_environment = get_branch_deployment_environment branch_type
@@ -119,7 +116,7 @@ def get_branch_deployment_environment(String branch_type) {
 
 def mvn(String goals) {
     def mvnHome = tool "Maven-3.2.3"
-    def javaHome = tool "JDK1.8.0_102"
+    def javaHome = tool "JDK1.8.0_151"
 
     withEnv(["JAVA_HOME=${javaHome}", "PATH+MAVEN=${mvnHome}/bin"]) {
         sh "mvn -B ${goals}"
