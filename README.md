@@ -1,5 +1,5 @@
 
-# jenkins-pipeline-gitflow-maven
+# jenkins-pipeline-gitflow-mavenf
 This is a sample Maven project with a Jenkinsfile for doing [gitflow](http://nvie.com/posts/a-successful-git-branching-model/) based release management.
 
 The [Jenkinsfile](https://jenkins.io/doc/book/pipeline/jenkinsfile/) is used by Jenkins to build a pipeline with the described steps. 
